@@ -1,0 +1,35 @@
+{
+  "name": "vue3-demo",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "element-plus": "^1.0.2-beta.48",
+    "vue": "^3.0.4",
+    "vue-router": "^4.0.9",
+    "vuex": "^4.0.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "@tencent/eslint-config-tencent": "^1.0.0-beta.5",
+    "@types/node": "^15.12.2",
+    "@typescript-eslint/eslint-plugin": "^4.27.0",
+    "@typescript-eslint/parser": "^4.27.0",
+    "@vitejs/plugin-vue": "^1.2.3",
+    "@vitejs/plugin-vue-jsx": "^1.1.5",
+    "@vue/compiler-sfc": "^3.0.4",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.11.1",
+    "prettier": "^2.2.1",
+    "sass": "^1.35.1",
+    "typescript": "^4.3.3",
+    "vite": "^2.3.7"
+  },
+  "license": "MIT"
+}

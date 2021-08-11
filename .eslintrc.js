@@ -9,7 +9,6 @@ module.exports = {
     },
   },
   extends: [
-    '@tencent/eslint-config-tencent',
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',

@@ -10,12 +10,16 @@
         text-color="#fff"
         active-text-color="#ffd04b"
       >
-        <el-menu-item index="/">处理中心</el-menu-item>
-        <el-menu-item index="/detail">消息中心</el-menu-item>
-      </el-menu></el-header
-    >
+        <el-menu-item index="/">
+          处理中心
+        </el-menu-item>
+        <el-menu-item index="/detail">
+          消息中心
+        </el-menu-item>
+      </el-menu>
+    </el-header>
     <el-main>
-      <router-view></router-view>
+      <router-view />
     </el-main>
   </el-container>
 </template>

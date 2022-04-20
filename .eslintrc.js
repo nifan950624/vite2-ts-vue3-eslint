@@ -11,7 +11,6 @@ module.exports = {
   extends: [
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
   ],
   rules: {
     '@typescript-eslint/ban-ts-ignore': 'off',
@@ -21,25 +20,12 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 'off',
     'vue/custom-event-name-casing': 'off',
     'no-use-before-define': 'off',
-    // 'no-use-before-define': [
-    //   'error',
-    //   {
-    //     functions: false,
-    //     classes: true,
-    //   },
-    // ],
     '@typescript-eslint/no-use-before-define': 'off',
-    // '@typescript-eslint/no-use-before-define': [
-    //   'error',
-    //   {
-    //     functions: false,
-    //     classes: true,
-    //   },
-    // ],
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    "@typescript-eslint/indent": ["error", 2],
     '@typescript-eslint/no-unused-vars': [
       'error',
       {
@@ -55,6 +41,5 @@ module.exports = {
       },
     ],
     'space-before-function-paren': 'off',
-    quotes: ['error', 'single'],
-  },
+  }
 };

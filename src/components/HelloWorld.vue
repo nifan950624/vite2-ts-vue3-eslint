@@ -1,6 +1,11 @@
 <template>
   <h1>{{ msg }}</h1>
-  <el-button type="primary" @click="inCrement"> count is: {{ count }}</el-button>
+  <el-button
+    type="primary"
+    @click="inCrement"
+  >
+    count is: {{ count }}
+  </el-button>
 </template>
 
 <script>

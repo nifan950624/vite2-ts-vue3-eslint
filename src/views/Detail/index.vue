@@ -1,7 +1,13 @@
 <template>
   <div class="detail">
     {{ book.title }}
-    <el-button class="btn" type="danger" @click="onClick">{{ readersNumber }}</el-button>
+    <el-button
+      class="btn"
+      type="danger"
+      @click="onClick"
+    >
+      {{ readersNumber }}
+    </el-button>
   </div>
 </template>
 <script lang="ts">

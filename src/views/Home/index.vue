@@ -1,26 +1,52 @@
+<script setup lang="ts">
+import { inject, onMounted, Ref } from 'vue'
+import { Map, EventData } from 'mapbox-gl'
+const mapRef = inject<Ref<Map>>('mapBox')
+
+onMounted(() => {
+  const map = (mapRef as Ref<any>).value
+  map.addSource("points", {
+    type: "geojson",
+    data: {
+      type: "FeatureCollection",
+      features: [
+        {
+          type: "Feature",
+          properties: {},
+          geometry: {
+            type: "Point",
+            coordinates: [114.371059, 30.620799] 
+          }
+        }
+      ]
+    }
+  });
+
+  map.addLayer({
+    id: "circle",
+    type: "circle",
+    source: "points",
+    paint: {
+      "circle-color": "#4264fb",
+      "circle-radius": 8,
+      "circle-stroke-width": 2,
+      "circle-stroke-color": "#ffffff"
+    }
+  });
+
+  map.on("click", "circle", (e: EventData) => {
+    map.flyTo({
+      center: e.features[0].geometry.coordinates
+    });
+  });
+})
+</script>
 <template>
-  <HelloWorld />
+  <div class="home">
+    home
+  </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, Ref } from 'vue';
-import HelloWorld from 'components/HelloWorld.vue';
 
-export default defineComponent({
-  components: { HelloWorld },
-  setup() {
-    const listRef = ref<null | Ref>(null);
-    const isShow = ref(false);
-    const handleClick = () => {
-      isShow.value = !isShow.value;
-    };
-
-    return {
-      isShow,
-      listRef,
-      handleClick,
-    };
-  },
-});
-</script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+</style>

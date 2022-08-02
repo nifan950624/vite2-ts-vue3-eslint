@@ -6,12 +6,15 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@mapbox/mapbox-gl-language": "^1.0.0",
     "element-plus": "^1.0.2-beta.48",
+    "mapbox-gl": "^2.9.2",
     "vue": "^3.0.4",
     "vue-router": "^4.0.9",
     "vuex": "^4.0.1"
   },
   "devDependencies": {
+    "@types/mapbox-gl": "^2.7.4",
     "@commitlint/cli": "^9.0.1",
     "@commitlint/config-conventional": "^9.0.1",
     "@types/node": "^15.12.2",

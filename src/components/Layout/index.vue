@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Map as MapInterface } from "mapbox-gl" 
+import { Map as MapInterface } from "mapbox-gl"
 import Map from '../Map/index.vue'
 import { ref, provide, Ref} from 'vue'
 
@@ -33,7 +33,7 @@ const onMapLoaded = (map: MapInterface) => {
     position: relative;
     width: 100vw;
     height: 100vh;
-    pointer-events: auto;
+    overflow: hidden;
 
     .map {
         position: absolute;

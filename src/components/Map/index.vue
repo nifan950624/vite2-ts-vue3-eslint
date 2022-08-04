@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import mapboxgl from "mapbox-gl";
-// @ts-ignore
 import MapboxLanguage from "@mapbox/mapbox-gl-language";
 import { defaultConfig } from "./config";
 import { ref, onMounted } from "vue";

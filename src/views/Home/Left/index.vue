@@ -1,4 +1,8 @@
 <script setup>
+import HipeCharts from './HipeCharts/index.vue'
+import { inject } from 'vue'
+
+const primaryColor = inject('primaryColor')
 
 </script>
 
@@ -6,23 +10,23 @@
   <div class="left-container">
     <dv-decoration7
       class="title"
-      :color="['#5bbef0']"
+      :color="[primaryColor, primaryColor]"
     >
       废气管理
     </dv-decoration7>
     <div class="flex-box main">
-      <div class="flex-box cell-1">
-        <dv-border-box4 :color="['#5bbef0','#fff']" />
-      </div>    
-      <div class="flex-box cell-2">
-        <dv-border-box-13 :color="['#5bbef0']" />
-      </div>    
-      <div class="flex-box cell-3">
-        <dv-border-box4
-          :color="['#5bbef0','#fff']"
-          :reverse="true"
-        />
-      </div>    
+      <div class="flex-box cell">
+        <dv-border-box4 :color="[primaryColor, '#fff']">
+          有组织废气
+          <HipeCharts />
+        </dv-border-box4>
+      </div>
+      <div class="flex-box cell">
+        <dv-border-box-13 :color="[primaryColor]">
+          无组织废气
+          <HipeCharts />
+        </dv-border-box-13>
+      </div>
     </div>
   </div>
 </template>
@@ -40,6 +44,11 @@
     .main {
         display: flex;
         flex-direction: column;
+    }
+
+    .cell {
+        padding: 8px;
+        box-sizing: border-box;
     }
 }
 

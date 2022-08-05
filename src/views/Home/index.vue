@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { inject } from 'vue'
 import Title from './Title/index.vue'
 import Left from './Left/index.vue'
 import Right from './Right/index.vue'
+
+const primaryColor = inject('primaryColor')
 
 </script>
 <template>
@@ -9,13 +12,13 @@ import Right from './Right/index.vue'
     <dv-decoration8
       style="width:300px;height:48px;"
       class="left-decoration"
-      :color="['#5bbef0', '#5bbef0']"
+      :color="[primaryColor, primaryColor]"
     />
     <dv-decoration8
       style="width:300px;height:48px;"
       :reverse="true"
       class="right-decoration"
-      :color="['#5bbef0', '#5bbef0']"
+      :color="[primaryColor, primaryColor]"
     />
     <Title class="title" />
     <Left class="left" />

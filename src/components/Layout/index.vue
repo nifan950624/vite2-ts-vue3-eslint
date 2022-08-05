@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { Map as MapInterface } from "mapbox-gl"
+import Model from '@/components/Model/index.vue'
 import Map from '../Map/index.vue'
-import { ref, provide, Ref} from 'vue'
+import { ref, provide, Ref } from 'vue'
 
 type MapBox = MapInterface | null
 
 const mapBox = ref<MapBox>(null)
+const primaryColor = ref<string>('#138b72')
 // 供给 mapBox
 provide<Ref<MapBox>>('mapBox', mapBox)
+provide<Ref<string>>('primaryColor', primaryColor)
 
 const onMapLoaded = (map: MapInterface) => {
   mapBox.value = map
@@ -15,12 +18,11 @@ const onMapLoaded = (map: MapInterface) => {
 </script>
 <template>
   <div class="layout-container">
-    <Map
-      class="map"
-      @loaded="onMapLoaded"
-    />
+    <!--    <Map-->
+    <!--      class="map"-->
+    <!--      @loaded="onMapLoaded"-->
+    <!--    />-->
     <div
-      v-if="mapBox"
       class="content"
     >
       <slot />

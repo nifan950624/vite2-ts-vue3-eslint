@@ -17,7 +17,7 @@ const center: mapboxgl.LngLatLike = [114.371059, 30.620799];
 onMounted(() => {
   const map = new mapboxgl.Map({
     container: mapBox.value as HTMLElement,
-    style: "mapbox://styles/mapbox/dark-v10",
+    style: "mapbox://styles/nifan950624/cl6ewbv6m002n14pg2tisqwst",
     zoom: 17.5,
     center,
     pitch: 60,

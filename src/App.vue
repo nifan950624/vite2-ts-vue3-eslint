@@ -6,4 +6,4 @@ import Home from '@/views/Home/index.vue'
   <Layout>
     <Home />
   </Layout>
-</template> 
+</template>

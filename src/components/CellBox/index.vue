@@ -27,7 +27,7 @@ defineProps<{
     font-size: 16px;
     font-weight: 700;
     padding-left: 8px;
-    border-left: #6da9cc 4px solid;
+    border-left: #00FFFF 4px solid;
   }
 
   .cell-inner {

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import {ref, reactive} from 'vue'
+import {reactive, inject, Ref} from 'vue'
+import {Map} from 'mapbox-gl'
 import PanelTitle from '@/components/PanelTitle/index.vue'
 import CellBox from '@/components/CellBox/index.vue'
 import ChartView from '@/components/Charts/index.vue'
@@ -8,6 +9,11 @@ import VTabs from '../Tabs/index.vue'
 import {monitoringState, manualMonitoringEmissions, pollutionStatistics} from '@/components/charts/options/bar/index'
 import {divisionSequencePollutants} from '@/components/charts/options/line/index'
 import {testPie} from '@/components/charts/options/pie/index'
+
+type NoUndefinedField<T> = { [P in keyof T]: Exclude<T[P], null | undefined> };
+
+const mapBoxRef = inject<Ref<Map>>('mapBox')
+const map = (mapBoxRef as NoUndefinedField<Ref<Map>>).value
 
 const tabData = reactive<{
   currentValue: number
@@ -36,6 +42,12 @@ const chartOptios = reactive({
 
 const handleTabChange = () => {
   console.log('tab 切换了')
+}
+
+const handleChartClick = () => {
+  map.flyTo({
+    center: [114.371059, 30.620799]
+  })
 }
 </script>
 
@@ -68,7 +80,7 @@ const handleTabChange = () => {
       </cell-box>
 
       <cell-box title="污染物排放统计" height="26%">
-        <chart-view :chart-option="chartOptios.pollutionStatistics" height="100%" />
+        <chart-view :chart-option="chartOptios.pollutionStatistics" height="100%" @click="handleChartClick" />
       </cell-box>
 
       <cell-box title="排放手工监测" height="20%">

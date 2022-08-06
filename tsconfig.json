@@ -4,7 +4,7 @@
     "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
     "allowJs": true,
-    
+
     // 解析非相对模块名的基准目录
     "baseUrl": ".",
 
@@ -20,7 +20,7 @@
     "moduleResolution": "node",
 
     // 启用所有严格类型检查选项。
-    // 启用 --strict相当于启用 --noImplicitAny, --noImplicitThis, --alwaysStrict， 
+    // 启用 --strict相当于启用 --noImplicitAny, --noImplicitThis, --alwaysStrict，
     // --strictNullChecks和 --strictFunctionTypes和--strictPropertyInitialization。
     "strict": true,
 
@@ -30,9 +30,9 @@
     // 忽略所有的声明文件（ *.d.ts）的类型检查。
     "skipLibCheck": true,
 
-    // 指定ECMAScript目标版本 
+    // 指定ECMAScript目标版本
     "target": "esnext",
-    
+
     // 要包含的类型声明文件名列表
     "types": [
 
@@ -62,7 +62,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx", 
+    "tests/**/*.tsx",
   ],
   "exclude": [
     "node_modules"

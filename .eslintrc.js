@@ -25,6 +25,15 @@ module.exports = {
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'vue/singleline-html-element-content-newline': 'off',
+    'vue/max-attributes-per-line': ["error", {
+      "singleline": {
+        "max": 3
+      },
+      "multiline": {
+        "max": 1
+      }
+    }],
     "@typescript-eslint/indent": ["error", 2],
     '@typescript-eslint/no-unused-vars': [
       'error',

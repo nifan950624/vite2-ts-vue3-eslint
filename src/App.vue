@@ -3,7 +3,8 @@ import Layout from '@/components/Layout/index.vue'
 import Home from '@/views/Home/index.vue'
 </script>
 <template>
-  <Layout>
-    <Home />
-  </Layout>
+  <layout>
+    <home />
+  </layout>
 </template>
+

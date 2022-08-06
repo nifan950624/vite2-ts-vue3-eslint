@@ -18,11 +18,12 @@ const onMapLoaded = (map: MapInterface) => {
 </script>
 <template>
   <div class="layout-container">
-    <!--    <Map-->
-    <!--      class="map"-->
-    <!--      @loaded="onMapLoaded"-->
-    <!--    />-->
+    <Map
+      class="map"
+      @loaded="onMapLoaded"
+    />
     <div
+      v-if="mapBox"
       class="content"
     >
       <slot />
@@ -32,22 +33,23 @@ const onMapLoaded = (map: MapInterface) => {
 
 <style lang="scss" scoped>
 .layout-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+
+  .map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .content {
     position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-
-    .map {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    .content {
-        position: relative;
-        z-index: 1;
-    }
+    z-index: 1;
+  }
 }
 </style>

@@ -70,7 +70,7 @@ const handleTabChange = () => {
               <div class="item-amount-wrapper">
                 <count-to :start-val="0" :end-val="1000" :duration="1000" />
                 <div class="bg">
-                  <div class="bg-inner" />
+                  <div class="bg-inner left" />
                 </div>
               </div>
               <div class="item-name">运输车数量</div>
@@ -79,7 +79,7 @@ const handleTabChange = () => {
               <div class="item-amount-wrapper">
                 <count-to :start-val="0" :end-val="43000" :duration="1000" />
                 <div class="bg">
-                  <div class="bg-inner" />
+                  <div class="bg-inner right" />
                 </div>
               </div>
               <div class="item-name">环卫车数量</div>
@@ -199,7 +199,7 @@ const handleTabChange = () => {
           .bg {
             position: absolute;
             left: 50%;
-            top: 10%;
+            top: 15%;
             width: 50px;
             height: 50px;
             transform: translateX(-50%) rotateX(90deg);
@@ -208,11 +208,15 @@ const handleTabChange = () => {
             .bg-inner {
               width: 100%;
               height: 100%;
-              border: 4px solid red;
-              border-left-color: green;
+              border: 4px solid ;
               border-radius: 50%;
               box-sizing: border-box;
               animation: 1s rotate360 infinite linear;
+              border-left-color: rgba(91, 118, 177, 1.00);
+              border-bottom-color: rgba(91, 118, 177, 1.00);
+              border-top-color: rgba(102, 63, 217, 1.00);
+              border-right-color: rgba(102, 63, 217, 1.00);
+              box-shadow: 0 0 16px 0 rgba(102, 63, 217, 1.00);
             }
           }
         }

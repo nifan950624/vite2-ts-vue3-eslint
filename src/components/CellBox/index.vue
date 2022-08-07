@@ -28,10 +28,12 @@ defineProps<{
     font-weight: 700;
     padding-left: 8px;
     border-left: #00FFFF 4px solid;
+    margin-bottom: 6px;
   }
 
   .cell-inner {
     flex: 1;
+    height: 0;
   }
 }
 </style>

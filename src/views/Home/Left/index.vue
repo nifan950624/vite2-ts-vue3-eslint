@@ -1,17 +1,12 @@
 <script setup lang="ts">
 import {reactive, inject, Ref} from 'vue'
 import {Map} from 'mapbox-gl'
-import PanelTitle from '@/components/PanelTitle/index.vue'
 import CellBox from '@/components/CellBox/index.vue'
 import ChartView from '@/components/Charts/index.vue'
 import VTabs from '../Tabs/index.vue'
+import useOptions from "@/components/Charts/options";
 
-import {monitoringState, manualMonitoringEmissions, pollutionStatistics} from '@/components/charts/options/bar/index'
-import {divisionSequencePollutants} from '@/components/charts/options/line/index'
-import {testPie} from '@/components/charts/options/pie/index'
-
-type NoUndefinedField<T> = { [P in keyof T]: Exclude<T[P], null | undefined> };
-
+const chartOptions = useOptions()
 const mapBoxRef = inject<Ref<Map>>('mapBox')
 const map = (mapBoxRef as NoUndefinedField<Ref<Map>>).value
 
@@ -32,14 +27,6 @@ const tabData = reactive<{
   ]
 })
 
-const chartOptios = reactive({
-  testPie: testPie(),
-  monitoringState: monitoringState(),
-  manualMonitoringEmissions: manualMonitoringEmissions(),
-  pollutionStatistics: pollutionStatistics(),
-  divisionSequencePollutants: divisionSequencePollutants(),
-})
-
 const handleTabChange = () => {
   console.log('tab 切换了')
 }
@@ -53,13 +40,12 @@ const handleChartClick = () => {
 
 <template>
   <div class="left-container">
-    <panel-title>废气管理</panel-title>
     <v-tabs v-model:value="tabData.currentValue" :tabs="tabData.tabs" @chang="handleTabChange" />
     <div class="flex-box main">
-      <cell-box title="排放口状态" height="14%">
+      <cell-box title="排放口状态" height="104px">
         <div class="cell-1">
           <div class="chart">
-            <chart-view :chart-option="chartOptios.testPie" height="100%" />
+            <chart-view :chart-option="chartOptions.ventState" height="100%" />
           </div>
           <div class="text-wrapper">
             <div class="cell-1-title">排放口数量</div>
@@ -76,19 +62,19 @@ const handleChartClick = () => {
       </cell-box>
 
       <cell-box title="在线监测状态分析" height="20%">
-        <chart-view :chart-option="chartOptios.monitoringState" height="100%" />
+        <chart-view :chart-option="chartOptions.monitoringState" height="100%" />
       </cell-box>
 
-      <cell-box title="污染物排放统计" height="26%">
-        <chart-view :chart-option="chartOptios.pollutionStatistics" height="100%" @click="handleChartClick" />
+      <cell-box title="污染物排放统计" class="flex-box" height="0">
+        <chart-view :chart-option="chartOptions.pollutionStatistics" height="100%" @click="handleChartClick" />
       </cell-box>
 
       <cell-box title="排放手工监测" height="20%">
-        <chart-view :chart-option="chartOptios.manualMonitoringEmissions" height="100%" />
+        <chart-view :chart-option="chartOptions.manualMonitoringEmissions" height="100%" />
       </cell-box>
 
       <cell-box title="分工序污染物排放统计" height="20%">
-        <chart-view :chart-option="chartOptios.divisionSequencePollutants" height="100%" />
+        <chart-view :chart-option="chartOptions.divisionSequencePollutants" height="100%" />
       </cell-box>
     </div>
   </div>
@@ -108,7 +94,7 @@ const handleChartClick = () => {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px 0 20px;
+    padding: 10px 40px 0 20px;
     height: 100%;
     box-sizing: border-box;
 
@@ -132,7 +118,6 @@ const handleChartClick = () => {
           display: inline-block;
           font-size: 14px;
           padding-left: 6px;
-          margin-bottom: 6px;
         }
       }
     }

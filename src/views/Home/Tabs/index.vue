@@ -2,6 +2,7 @@
 import {defineEmits, nextTick, watch} from "vue";
 
 const props = defineProps<{
+  size: string,
   value: CurrentTabValue,
   tabs: Tab[]
 }>()
@@ -12,7 +13,9 @@ const emit = defineEmits<{
 }>()
 
 watch(() => props.value, (val) => {
-  emit('change', val)
+  nextTick(() => {
+    emit('change', val)
+  })
 })
 
 const handleClick = (value: CurrentTabValue) => {
@@ -21,7 +24,7 @@ const handleClick = (value: CurrentTabValue) => {
 </script>
 
 <template>
-  <div class="tabs">
+  <div class="tabs" :style="{fontSize: size}">
     <div
       v-for="item in tabs"
       :key="item.value"

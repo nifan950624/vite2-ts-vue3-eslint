@@ -6,6 +6,7 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@kjgl77/datav-vue3": "^1.2.0",
     "@mapbox/mapbox-gl-language": "^1.0.0",
     "echarts": "^5.3.3",
     "element-plus": "^1.0.2-beta.48",

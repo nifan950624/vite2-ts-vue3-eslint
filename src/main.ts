@@ -3,6 +3,7 @@ import { store, key } from './store';
 import router from './router';
 import ElementPlus from 'element-plus';
 import CountTo from  'vue3-count-to'
+import DataVVue3 from '@kjgl77/datav-vue3'
 
 import 'element-plus/lib/theme-chalk/index.css';
 import '@/assets/styles/reset.css';
@@ -14,6 +15,7 @@ const app = createApp(App);
 app.use(store, key);
 app.use(router);
 app.use(ElementPlus);
-app.use(CountTo)
+app.use(CountTo);
+app.use(DataVVue3);
 
 app.mount('#app');

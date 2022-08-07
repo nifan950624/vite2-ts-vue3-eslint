@@ -1,4 +1,4 @@
-const testPie = (customOption) => {
+const ventState = (customOption) => {
   let angle = 0;//角度，用来做简单的动画效果的
   let value = 78; //图上角度数据
 
@@ -11,12 +11,12 @@ const testPie = (customOption) => {
       textStyle: {
         rich: {
           a: {
-            fontSize: 20,
+            fontSize: 14,
             color: '#ffffff',
             fontWeight: 'bold'
           },
           c: {
-            fontSize: 20,
+            fontSize: 14,
             color: '#ffffff',
             fontWeight: 'normal'
           }
@@ -53,7 +53,7 @@ const testPie = (customOption) => {
       {
         name: '',
         type: 'pie',
-        radius: ['85%', '70%'],
+        radius: ['90%', '70%'],
         silent: true,
         clockwise: true,
         startAngle: 90,
@@ -72,7 +72,7 @@ const testPie = (customOption) => {
               normal: {
                 //外环发光
                 borderWidth: 0.5,
-                shadowBlur: 20,
+                shadowBlur: 10,
                 borderColor: '#4bf3f9',
                 shadowColor: '#9bfeff',
                 color: { // 圆环的颜色
@@ -166,6 +166,6 @@ const cleanTransportRatio = () => {
 }
 
 export {
-  testPie,
+  ventState,
   cleanTransportRatio
 }

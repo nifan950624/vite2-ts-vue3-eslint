@@ -1,7 +1,4 @@
 <script setup>
-import { inject } from 'vue'
-
-const primaryColor = inject('primaryColor')
 </script>
 <template>
   <div class="title-container">
@@ -16,7 +13,7 @@ const primaryColor = inject('primaryColor')
     letter-spacing: 4px;
     text-shadow: 3px 3px 3px rgb(0 0 0 / 30%);
     font-size: 40px;
-    background-image: linear-gradient(180deg, #95d8d9, #6c9ea3);
+    background-image: linear-gradient(180deg, #00FFFF, #6c9ea3);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;

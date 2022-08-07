@@ -3,10 +3,12 @@ import mapboxgl from "mapbox-gl";
 import MapboxLanguage from "@mapbox/mapbox-gl-language";
 import { defaultConfig } from "./config";
 import { ref, onMounted } from "vue";
+import {Loading} from "@kjgl77/datav-vue3";
+import {ElLoading} from "element-plus";
 
 const props = defineProps<{ options?: Omit<mapboxgl.MapboxOptions, 'container'> }>()
-const emit = defineEmits<{ 
-  (e: 'loaded', map: mapboxgl.Map): void 
+const emit = defineEmits<{
+  (e: 'loaded', map: mapboxgl.Map): void
 }>()
 
 const mapBox = ref<HTMLElement | null>(null)
@@ -15,6 +17,11 @@ mapboxgl.accessToken = defaultConfig.accessToken
 const center: mapboxgl.LngLatLike = [114.371059, 30.620799];
 
 onMounted(() => {
+  const loading = ElLoading.service({
+    lock: true,
+    text: '地图加载中...',
+    background: 'rgba(0, 0, 0, 0.7)',
+  })
   const map = new mapboxgl.Map({
     container: mapBox.value as HTMLElement,
     style: "mapbox://styles/nifan950624/cl6ewbv6m002n14pg2tisqwst",
@@ -76,6 +83,9 @@ onMounted(() => {
       },
       labelLayerId
     );
+
+    // 关闭 loading
+    loading.close()
     emit('loaded', map)
   });
 })

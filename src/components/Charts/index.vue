@@ -16,7 +16,7 @@ const emit = defineEmits<{
 }>()
 
 const chartRenderRef = ref<HTMLElement | null>(null)
-const chartRef = ref<echarts.EChartsType | null>(null)
+let chart: echarts.ECharts
 
 // 点击echarts
 const handleClick = (params: any) => {
@@ -24,17 +24,17 @@ const handleClick = (params: any) => {
 }
 
 const initChart = () => {
-  chartRef.value = echarts.init(chartRenderRef.value as HTMLElement, '', {
+  chart = echarts.init(chartRenderRef.value as HTMLElement, '', {
     renderer: props.type,  // 设置渲染器类型,
   })
-  chartRef.value.setOption(props.chartOption)
-  chartRef.value.on('click', handleClick)
+  chart.setOption(props.chartOption)
+  chart.on('click', handleClick)
 }
 
 const setOptions = (option: echarts.EChartsOption) => {
   clearChart()
   resizeHandler()
-  chartRef.value?.setOption(option)
+  chart.setOption(option)
 }
 
 const refresh = () => {
@@ -42,16 +42,17 @@ const refresh = () => {
 }
 
 const clearChart = () => {
-  chartRef.value?.clear()
+  chart.clear()
 }
 
-const resizeHandler = () => {
-  if(!props.autoResize) return;
-  try {
-    (chartRef.value as echarts.ECharts)?.resize()
-  }catch (_) {
+let resizeTimer: number
 
-  }
+const resizeHandler = () => {
+  if (!props.autoResize) return;
+  resizeTimer && clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    chart?.resize()
+  })
 }
 
 useWindowResize(resizeHandler)

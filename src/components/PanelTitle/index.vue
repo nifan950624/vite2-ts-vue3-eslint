@@ -16,6 +16,7 @@ const className = computed<string>(() => `is-${props.align}`)
 .panel-title {
   height: 28px;
   font-size: 24px;
+  margin-bottom: 6px;
   font-style: italic;
 
   &.is-left {

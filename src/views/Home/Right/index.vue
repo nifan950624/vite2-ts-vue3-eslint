@@ -1,24 +1,39 @@
-<script setup>
-import {ref} from 'vue'
-import PanelTitle from '@/components/PanelTitle/index.vue'
+<script setup lang="ts">
+import {reactive} from 'vue'
 import CellBox from '@/components/CellBox/index.vue'
 import ChartView from '@/components/Charts/index.vue'
-import {vehicleTrainsStatistics, sanitationCarStateStatistics} from '@/components/charts/options/bar/index'
-import {bulkMaterial, vehicleEmissions} from '@/components/charts/options/line/index'
-import {cleanTransportRatio} from '@/components/charts/options/pie/index'
+import useOptions from "@/components/Charts/options";
+import VTabs from '../Tabs/index.vue'
 
-const cleanTransportRatioOptions = ref(cleanTransportRatio())
-const vehicleTrainsStatisticsOptions = ref(vehicleTrainsStatistics())
-const bulkMaterialOptions = ref(bulkMaterial())
-const vehicleEmissionsOptions = ref(vehicleEmissions())
-const sanitationCarStateStatisticsOptions = ref(sanitationCarStateStatistics())
+const chartOptions = useOptions()
+
+const tabData = reactive<{
+  currentValue: number
+  tabs: Tab[]
+}>({
+  currentValue: 1,
+  tabs: [
+    {
+      value: 1,
+      label: '环卫车状态'
+    },
+    {
+      value: 2,
+      label: '非道路移动器械'
+    }
+  ]
+})
+
+const handleTabChange = () => {
+  console.log('tab 切换了')
+}
+
 </script>
 
 <template>
   <div class="right-container">
-    <panel-title align="right">清洁运输</panel-title>
     <div class="flex-box main">
-      <div class="row" style="height: 12%">
+      <div class="row" style="height: 110px">
         <cell-box title="运输总量" class="flex-box">
           <div class="cell-1">
             <div class="item">
@@ -73,24 +88,30 @@ const sanitationCarStateStatisticsOptions = ref(sanitationCarStateStatistics())
         </cell-box>
       </div>
       <cell-box title="大宗物料阶段数据统计" height="12%">
-        <chart-view :chart-option="bulkMaterialOptions" height="100%" />
+        <chart-view :chart-option="chartOptions.bulkMaterial" height="100%" />
       </cell-box>
       <cell-box title="产品阶段数据统计" height="12%">
-        <chart-view :chart-option="bulkMaterialOptions" height="100%" />
+        <chart-view :chart-option="chartOptions.bulkMaterial" height="100%" />
       </cell-box>
       <cell-box title="车辆车次情况统计" height="20%">
-        <chart-view :chart-option="vehicleTrainsStatisticsOptions" height="100%" />
+        <chart-view :chart-option="chartOptions.vehicleTrainsStatistics" height="100%" />
       </cell-box>
       <div class="row" style="height: 15%">
         <cell-box title="清洁运输比例" style="width: 8em" height="100%">
-          <chart-view :chart-option="cleanTransportRatioOptions" height="100%" />
+          <chart-view :chart-option="chartOptions.cleanTransportRatio" height="100%" />
         </cell-box>
         <cell-box title="车辆排放阶段统计" class="flex-box" height="100%">
-          <chart-view :chart-option="vehicleEmissionsOptions" height="100%" />
+          <chart-view :chart-option="chartOptions.vehicleEmissions" height="100%" />
         </cell-box>
       </div>
-      <cell-box title="环卫车状态统计" class="flex-box">
-        <chart-view :chart-option="sanitationCarStateStatisticsOptions" height="100%" />
+      <v-tabs
+        v-model:value="tabData.currentValue"
+        size="14px"
+        :tabs="tabData.tabs"
+        @chang="handleTabChange"
+      />
+      <cell-box title="环卫车状态统计" class="flex-box" height="0">
+        <chart-view :chart-option="chartOptions.sanitationCarStateStatistics" height="100%" />
       </cell-box>
     </div>
   </div>

@@ -38,6 +38,7 @@ const onMapLoaded = (map: MapInterface) => {
   height: 100vh;
   overflow: hidden;
   background: #000;
+  user-select: none;
 
   .map {
     position: absolute;

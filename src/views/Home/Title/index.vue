@@ -1,8 +1,16 @@
 <script setup>
+import { inject } from 'vue'
+
+const primaryColor = inject('primaryColor')
 </script>
 <template>
   <div class="title-container">
     企业环保智慧管控平台
+    <dv-decoration5
+      :dur="2"
+      style="width:11em;height:40px;"
+      :color="[primaryColor, primaryColor]"
+    />
   </div>
 </template>
 

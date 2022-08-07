@@ -127,6 +127,10 @@ $blockPadding: 8px;
       padding: 4px 8px;
       cursor: pointer;
       color: #00FFFF;
+
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 }

@@ -50,12 +50,15 @@ const handleClick = (value: CurrentTabValue) => {
     cursor: pointer;
     white-space: nowrap;
 
+    &:hover {
+       opacity: 0.8;
+    }
+
     &.active {
       color: #00FFFF;
     }
   }
 }
-
 </style>
 
 

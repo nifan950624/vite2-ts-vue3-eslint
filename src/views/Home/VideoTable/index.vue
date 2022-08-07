@@ -7,7 +7,6 @@ import {Map} from "mapbox-gl";
 const mapBoxRef = inject<Ref<Map>>('mapBox')
 const map = (mapBoxRef as NoUndefinedField<Ref<Map>>).value
 
-
 const config = reactive({
   headerBGC: 'rgba(120, 173, 171, 0.1)',
   oddRowBGC: 'rgba(120, 173, 171, 0)',
@@ -29,7 +28,6 @@ const handleTableClick = () => {
   map.flyTo({center: [114.371059, 31.620799]})
   ElMessage.warning('视频播放开发中...')
 }
-
 </script>
 
 <template>
@@ -50,9 +48,4 @@ const handleTableClick = () => {
   width: 100%;
   height: 100%;
 }
-
-::v-deep .el-table--scrollable-x .el-table__body-wrapper {
-  overflow-x: hidden;
-}
-
 </style>

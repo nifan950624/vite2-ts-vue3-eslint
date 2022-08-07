@@ -7,7 +7,7 @@ import { ref, provide, Ref } from 'vue'
 type MapBox = MapInterface | null
 
 const mapBox = ref<MapBox>(null)
-const primaryColor = ref<string>('#138b72')
+const primaryColor = ref<string>('#00FFFF')
 // 供给 mapBox
 provide<Ref<MapBox>>('mapBox', mapBox)
 provide<Ref<string>>('primaryColor', primaryColor)

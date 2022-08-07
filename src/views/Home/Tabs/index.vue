@@ -2,7 +2,7 @@
 import {defineEmits, nextTick, watch} from "vue";
 
 const props = defineProps<{
-  size: string,
+  size?: string,
   value: CurrentTabValue,
   tabs: Tab[]
 }>()

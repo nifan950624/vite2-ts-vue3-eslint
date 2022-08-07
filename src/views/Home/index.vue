@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {ref} from 'vue'
 import Layout from '@/components/Layout/index.vue'
-import PanelTitle from '@/components/PanelTitle/index.vue'
+import PanelTitle from './PanelTitle/index.vue'
 import VTitle from './Title/index.vue'
 import VLeft from './Left/index.vue'
 import VRight from './Right/index.vue'

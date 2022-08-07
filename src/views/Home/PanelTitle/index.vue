@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {computed} from 'vue'
 
-const props = withDefaults(defineProps<{ align: 'left' | 'center' | 'right' }>(), {
+const props = withDefaults(defineProps<{ align?: 'left' | 'center' | 'right' }>(), {
   align: 'left'
 })
 const className = computed<string>(() => `is-${props.align}`)

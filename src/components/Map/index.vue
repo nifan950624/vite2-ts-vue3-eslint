@@ -3,7 +3,6 @@ import mapboxgl from "mapbox-gl";
 import MapboxLanguage from "@mapbox/mapbox-gl-language";
 import { defaultConfig } from "./config";
 import { ref, onMounted } from "vue";
-import {Loading} from "@kjgl77/datav-vue3";
 import {ElLoading} from "element-plus";
 
 const props = defineProps<{ options?: Omit<mapboxgl.MapboxOptions, 'container'> }>()
@@ -24,7 +23,7 @@ onMounted(() => {
   })
   const map = new mapboxgl.Map({
     container: mapBox.value as HTMLElement,
-    style: "mapbox://styles/nifan950624/cl6ewbv6m002n14pg2tisqwst",
+    style: "mapbox://styles/mapbox/dark-v10",
     zoom: 17.5,
     center,
     pitch: 60,

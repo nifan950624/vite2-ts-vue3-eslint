@@ -8,7 +8,6 @@ import VRight from './Right/index.vue'
 import VideoTable from './VideoTable/index.vue'
 
 const isFold = ref<boolean>(false)
-
 const handleFoldBtnClick = () => {
   isFold.value = !isFold.value
 }
@@ -39,7 +38,7 @@ $leftBlockWidth: 18%;
 $rightBlockWidth: 18%;
 $bottomBottomRectTopToBottom: 250px;
 $bottomBlockWidth: calc(100% - ($leftBlockWidth + $rightBlockWidth + 4 * $grid));
-$blockBgColor: rgba(77, 124, 99, 0.5);
+$blockBgColor: rgba(0, 0, 0, 0.2);
 $blockBorderRadius: 4px;
 $defaultColor: #fff;
 $blockPadding: 8px;
@@ -110,7 +109,7 @@ $blockPadding: 8px;
     background-color: $blockBgColor;
     border-radius: $blockBorderRadius 0 $blockBorderRadius $blockBorderRadius;
     padding: $blockPadding;;
-    transition: all .3s ease-in;
+    transition: all .3s ease-out;
     transform: none;
     box-sizing: border-box;
 
